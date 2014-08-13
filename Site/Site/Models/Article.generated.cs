@@ -20,16 +20,16 @@ using Zbu.ModelsBuilder.Umbraco;
 
 namespace Site.Models
 {
-	/// <summary>Home</summary>
-	[PublishedContentModel("Home")]
-	public partial class Home : Base
+	/// <summary>Article</summary>
+	[PublishedContentModel("Article")]
+	public partial class Article : Base
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "Home";
+		public new const string ModelTypeAlias = "Article";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public Home(IPublishedContent content)
+		public Article(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,31 +40,17 @@ namespace Site.Models
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Home, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Article, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
 
-
-		/// <summary>Blocks</summary>
-		[ImplementPropertyType("blocks")]
-		public object Blocks
-		{
-			get { return this.GetPropertyValue("blocks"); }
-		}
 
 		/// <summary>Body text</summary>
 		[ImplementPropertyType("bodyText")]
 		public IHtmlString BodyText
 		{
 			get { return this.GetPropertyValue<IHtmlString>("bodyText"); }
-		}
-
-		/// <summary>Links</summary>
-		[ImplementPropertyType("links")]
-		public Newtonsoft.Json.Linq.JArray Links
-		{
-			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JArray>("links"); }
 		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Site.Models.Home>
+﻿@using Site.Models
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<Site.Models.Home>
 
 @{
     Layout = null;
@@ -6,3 +7,22 @@
 
 <h1>@Model.Name</h1>
 <p>@Model.BodyText</p>
+
+<ul>
+    @foreach (var item in Model.Links)
+    {
+        <li><a href="@item["link"]" target="@((bool)item["newWindow"] ? "_blank" : string.Empty)">@item["caption"]</a></li>
+    }
+</ul>
+
+<div>
+    @Html.Raw(umbraco.library.RenderMacroContent(Model.Blocks.ToString(), Model.Id))
+</div>
+
+<strong>Articles</strong>
+<ul>
+    @foreach (var item in Model.Children<Article>())
+    {
+        <li><a href="@item.Url">@item.Name</a></li>
+    }
+</ul>

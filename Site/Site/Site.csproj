@@ -242,6 +242,9 @@
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
     <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\MacroPartials\Image.cshtml" />
+    <Content Include="Views\MacroPartials\Teaser.cshtml" />
+    <Content Include="Views\Article.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -261,6 +264,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Article.generated.cs">
+      <DependentUpon>Builder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Base.generated.cs">
       <DependentUpon>Builder.cs</DependentUpon>
       <SubType>Code</SubType>
@@ -299,6 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />
+    <Folder Include="Views\Partials\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,11 @@
+Site/Site.ZbuModelsBuilder.user
+Site/Site.v12.suo
+Site/Site/App_Data/Logs/UmbracoTraceLog.txt
+Site/Site/App_Data/TEMP/
+Site/Site/bin/
+Site/Site/obj/
+Site/Site/umbraco/
+Site/Site/umbraco_client/
+Site/packages/
+Site/Site/usercontrols/Zbu/
+Site/Site/App_Data/NuGetBackup/
